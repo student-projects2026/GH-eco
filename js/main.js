@@ -175,7 +175,7 @@ function initScrollAnimations() {
     });
   }, {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px 100px 0px'
   });
 
   revealElements.forEach(el => observer.observe(el));
@@ -374,8 +374,8 @@ function initAttractionGalleries() {
 
 // Add reveal class to major cards and timeline items on load
 window.addEventListener('load', () => {
-  document.querySelectorAll('.major-card, .timeline-item, .app-card, .attraction-card').forEach((el, i) => {
+  document.querySelectorAll('.major-card, .timeline-item, .app-card, .attraction-card, .wall-card').forEach((el, i) => {
     el.classList.add('reveal');
-    el.style.transitionDelay = `${i * 0.1}s`;
+    el.style.transitionDelay = `${Math.min(i * 0.04, 0.2)}s`;
   });
 });
